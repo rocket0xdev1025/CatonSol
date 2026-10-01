@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C@T — The Cat on National Punctuation Day</title>
+  <meta name="description" content="C@T is the cat that punctuation day let off the keyboard. Symbol $C@T on Solana. The @ grew ears." />
+  <link rel="icon" href="logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ["Syne", "sans-serif"],
+            body: ["Outfit", "sans-serif"],
+          },
+          boxShadow: {
+            glow: "0 0 40px rgba(94, 234, 255, 0.35)",
+            mag: "0 0 40px rgba(217, 70, 239, 0.28)",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Outfit, sans-serif;
+      color: #f4fbff;
+      background-color: #05010f;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: url("banner.jpg") center / cover no-repeat;
+    }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at center, rgba(5, 1, 18, 0.15) 0%, rgba(5, 1, 18, 0.55) 62%, rgba(5, 1, 18, 0.82) 100%),
+        linear-gradient(180deg, rgba(5, 1, 18, 0.55) 0%, rgba(5, 1, 18, 0.18) 28%, rgba(5, 1, 18, 0.45) 100%);
+    }
+    ::selection { background: #67e8f9; color: #05010f; }
+    @keyframes spin-slow { to { transform: rotate(360deg); } }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes floaty { 50% { transform: translateY(-10px); } }
+    @keyframes blink { 50% { opacity: 0; } }
+    .spin-slow { animation: spin-slow 32s linear infinite; }
+    .marquee { animation: marquee 32s linear infinite; }
+    .floaty { animation: floaty 5.5s ease-in-out infinite; }
+    .blink { animation: blink 1.15s steps(1) infinite; }
+    .glass {
+      background: rgba(6, 2, 18, 0.62);
+      backdrop-filter: blur(16px);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .spin-slow, .marquee, .floaty, .blink { animation: none; }
+    }
+  </style>
+</head>
+<body class="font-body antialiased">
+  <header class="sticky top-0 z-50 border-b border-cyan-200/15 bg-black/45 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="logo.jpg" alt="C@T logo" class="h-10 w-10 rounded-full object-cover mix-blend-screen" />
+        <span class="font-display text-xl font-extrabold tracking-wide">C<span class="text-cyan-300">@</span>T</span>
+      </a>
+      <nav class="hidden items-center gap-7 text-sm font-medium text-cyan-50/80 md:flex">
+        <a href="#story" class="transition hover:text-cyan-300">The Cat</a>
+        <a href="#buy" class="transition hover:text-cyan-300">How to Buy</a>
+        <a href="#chart" class="transition hover:text-cyan-300">Chart</a>
+      </nav>
+      <div class="flex items-center gap-2.5">
+        <a href="https://t.me/catonsol_fun" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="transition hover:scale-110">
+          <img src="tg.png" alt="" class="h-9 w-9 rounded-full object-cover shadow-glow" />
+        </a>
+        <a href="https://x.com/catonsol_fun" target="_blank" rel="noopener noreferrer" aria-label="X" class="grid h-9 w-9 place-items-center overflow-hidden rounded-full bg-black ring-1 ring-white/20 transition hover:scale-110">
+          <img src="x.png" alt="" class="h-full w-full object-cover" />
+        </a>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="hidden rounded-full bg-gradient-to-r from-cyan-300 to-fuchsia-400 px-4 py-2 text-sm font-bold text-black shadow-glow transition hover:scale-105 sm:inline-flex">
+          Buy Now
+        </a>
+        <button id="menuBtn" class="grid h-9 w-9 place-items-center rounded-full border border-cyan-200/30 text-cyan-100 md:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="hidden border-t border-white/10 px-5 py-4 md:hidden">
+      <div class="flex flex-col gap-3 text-sm font-medium">
+        <a href="#story" class="mobile-link">The Cat</a>
+        <a href="#buy" class="mobile-link">How to Buy</a>
+        <a href="#chart" class="mobile-link">Chart</a>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="mt-1 rounded-full bg-gradient-to-r from-cyan-300 to-fuchsia-400 px-4 py-2 text-center font-bold text-black">Buy Now</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="overflow-hidden border-b border-cyan-200/10 bg-black/35">
+    <div class="marquee flex w-max gap-10 py-2.5 text-xs font-semibold uppercase tracking-[0.35em] text-cyan-100/75">
+      <span>The Cat on National Punctuation Day</span><span class="text-fuchsia-300">@</span>
+      <span>$C@T on Solana</span><span class="text-cyan-300">.</span>
+      <span>The @ grew ears</span><span class="text-fuchsia-300">!</span>
+      <span>September 24</span><span class="text-cyan-300">,</span>
+      <span>The Cat on National Punctuation Day</span><span class="text-fuchsia-300">@</span>
+      <span>$C@T on Solana</span><span class="text-cyan-300">.</span>
+      <span>The @ grew ears</span><span class="text-fuchsia-300">!</span>
+      <span>September 24</span><span class="text-cyan-300">,</span>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-16 md:grid-cols-[auto_1fr] md:pt-24">
+      <div class="relative mx-auto h-72 w-72 shrink-0">
+        <div class="absolute inset-6 rounded-full bg-cyan-400/25 blur-3xl"></div>
+        <div class="spin-slow absolute inset-0 rounded-full border border-dashed border-cyan-300/50"></div>
+        <div class="spin-slow absolute inset-3 rounded-full border border-fuchsia-400/30" style="animation-direction: reverse; animation-duration: 46s;"></div>
+        <span class="absolute left-1/2 top-0 -translate-x-1/2 font-display text-2xl text-cyan-300">@</span>
+        <span class="absolute right-1 top-1/2 -translate-y-1/2 font-display text-2xl text-fuchsia-300">!</span>
+        <span class="absolute bottom-0 left-1/2 -translate-x-1/2 font-display text-3xl text-white">.</span>
+        <span class="absolute left-1 top-1/2 -translate-y-1/2 font-display text-3xl text-cyan-100">,</span>
+        <img src="logo.jpg" alt="C@T, the at-sign cat" class="floaty absolute inset-10 h-[calc(100%-5rem)] w-[calc(100%-5rem)] object-cover mix-blend-screen drop-shadow-[0_0_24px_rgba(125,249,255,0.85)]" />
+      </div>
+
+      <div class="text-center md:text-left">
+        <p class="mb-4 text-xs font-semibold uppercase tracking-[0.42em] text-cyan-300">National Punctuation Day</p>
+        <h1 class="font-display text-6xl font-extrabold leading-none tracking-tight sm:text-7xl md:text-8xl">
+          C<span class="bg-gradient-to-b from-cyan-200 to-fuchsia-400 bg-clip-text text-transparent">@</span>T<span class="blink ml-1 inline-block h-[0.72em] w-[0.28em] translate-y-1 bg-cyan-300 align-middle"></span>
+        </h1>
+        <p class="mt-5 max-w-xl text-lg text-cyan-50/85 md:text-xl">
+          The Cat on National Punctuation Day. The @ grew ears, curled a tail, and walked onto Solana.
+        </p>
+        <p class="mt-2 text-sm uppercase tracking-[0.28em] text-fuchsia-200/80">Symbol · $C@T</p>
+
+        <div class="mx-auto mt-8 flex max-w-xl flex-col gap-3 rounded-2xl border border-cyan-200/20 bg-black/50 p-3 backdrop-blur-md sm:flex-row sm:items-center md:mx-0">
+          <div class="min-w-0 flex-1 px-2 text-left">
+            <p class="text-[10px] font-semibold uppercase tracking-[0.28em] text-cyan-300/80">Contract address</p>
+            <p id="caText" class="truncate font-mono text-sm text-white">TBA</p>
+          </div>
+          <button type="button" data-copy="TBA" class="copy-btn shrink-0 rounded-xl border border-cyan-300/40 bg-cyan-300/10 px-4 py-2.5 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-300/20">
+            <span data-label>Copy CA</span>
+          </button>
+        </div>
+
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-3 md:justify-start">
+          <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="rounded-full bg-gradient-to-r from-cyan-300 via-white to-fuchsia-400 px-7 py-3 font-bold text-black shadow-glow transition hover:scale-105">
+            Buy Now
+          </a>
+          <a href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="rounded-full border border-cyan-200/40 bg-black/40 px-7 py-3 font-semibold text-cyan-50 backdrop-blur transition hover:border-cyan-300 hover:text-cyan-200">
+            Chart
+          </a>
+        </div>
+        <p id="copyStatus" class="sr-only" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="story" class="mx-auto max-w-6xl px-5 py-16">
+      <div class="relative overflow-hidden rounded-[2rem] border border-cyan-200/20 bg-black/55 p-8 shadow-mag backdrop-blur-xl md:p-12">
+        <span class="pointer-events-none absolute -right-4 -top-16 font-display text-[16rem] leading-none text-white/[0.04]">@</span>
+        <p class="text-xs font-semibold uppercase tracking-[0.38em] text-fuchsia-300">September 24</p>
+        <h2 class="mt-3 max-w-3xl font-display text-4xl font-extrabold leading-tight md:text-6xl">The Cat on National Punctuation Day.</h2>
+        <div class="mt-8 grid gap-8 md:grid-cols-5">
+          <div class="space-y-5 text-base leading-relaxed text-cyan-50/85 md:col-span-3 md:text-lg">
+            <p>Every mark gets a holiday. Periods stop the room. Commas let it breathe. Question marks tilt their heads and wait.</p>
+            <p>The @ did not wait. On National Punctuation Day it stood up. Two ears cut the top of the loop, a tail swept out of the curve, and a cat walked off the keyboard.</p>
+            <p>That cat is <span class="font-semibold text-white">C@T</span>. The symbol is <span class="font-semibold text-white">$C@T</span>. One character that already meant “you are here,” now prowling Solana with a contract and a chart.</p>
+          </div>
+          <div class="grid gap-3 md:col-span-2">
+            <article class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="font-display text-3xl text-cyan-300">@</p>
+              <p class="mt-1 text-sm text-cyan-50/75">The mark that grew ears. Not a letter. A cat.</p>
+            </article>
+            <article class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="font-display text-3xl text-fuchsia-300">.</p>
+              <p class="mt-1 text-sm text-cyan-50/75">A full stop for anyone still reading the sentence without the meme.</p>
+            </article>
+            <article class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p class="font-display text-3xl text-white">!</p>
+              <p class="mt-1 text-sm text-cyan-50/75">Solana is the page. $C@T is the exclamation.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="buy" class="mx-auto max-w-6xl px-5 py-16">
+      <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.38em] text-cyan-300">Four marks. One swap.</p>
+          <h2 class="mt-3 font-display text-4xl font-extrabold md:text-5xl">How to Buy</h2>
+          <p class="mt-3 max-w-xl text-cyan-50/80">Buy $C@T with SOL on Solana. Four steps, then the punctuation cat is in your wallet.</p>
+        </div>
+        <a href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=TBA" target="_blank" rel="noopener noreferrer" class="inline-flex w-fit rounded-full bg-gradient-to-r from-cyan-300 to-fuchsia-400 px-6 py-3 font-bold text-black shadow-glow transition hover:scale-105">
+          Buy Now
+        </a>
+      </div>
+
+      <ol class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <li class="glass rounded-3xl border border-cyan-300/25 p-6">
+          <div class="flex items-start justify-between">
+            <span class="font-display text-5xl leading-none text-cyan-300">.</span>
+            <span class="rounded-full border border-white/15 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-cyan-100/70">01</span>
+          </div>
+          <h3 class="mt-6 font-display text-2xl font-bold">Get a wallet</h3>
+          <p class="mt-3 text-sm leading-relaxed text-cyan-50/75">Install Phantom or Solflare and create a Solana wallet. Write the seed phrase down offline. This is the period the sentence starts with.</p>
+        </li>
+        <li class="glass rounded-3xl border border-fuchsia-400/25 p-6">
+          <div class="flex items-start justify-between">
+            <span class="font-display text-5xl leading-none text-fuchsia-300">,</span>
+            <span class="rounded-full border border-white/15 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-cyan-100/70">02</span>
+          </div>
+          <h3 class="mt-6 font-display text-2xl font-bold">Fund with SOL</h3>
+          <p class="mt-3 text-sm leading-relaxed text-cyan-50/75">Buy SOL and send it to your wallet. Keep a little extra for network fees. SOL is both the comma of capital and the token you swap from.</p>
+        </li>
+        <li class="glass rounded-3xl border border-cyan-300/25 p-6">
+          <div class="flex items-start justify-between">
+            <span class="font-display text-5xl leading-none text-cyan-200">@</span>
+            <span class="rounded-full border border-white/15 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-cyan-100/70">03</span>
+          </div>
+          <h3 class="mt-6 font-display text-2xl font-bold">Copy the CA</h3>
+          <p class="mt-3 text-sm leading-relaxed text-cyan-50/75">Copy the contract below so you buy $C@T and not a lookalike. Or press Buy Now — the swap already pairs SOL into C@T.</p>
+        </li>
+        <li class="glass rounded-3xl border border-white/20 p-6">
+          <div class="flex items-start justify-between">
+            <span class="font-display text-5xl leading-none text-white">!</span>
+            <span class="rounded-full border border-white/15 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-cyan-100/70">04</span>
+          </div>
+          <h3 class="mt-6 font-display text-2xl font-bold">Swap and confirm</h3>
+          <p class="mt-3 text-sm leading-relaxed text-cyan-50/75">Enter the SOL amount, read the quote, and confirm in your wallet. $C@T lands with the exclamation still attached.</p>
+        </li>
+      </ol>
+
+      <div class="mt-6 flex flex-col gap-3 rounded-2xl border border-cyan-200/20 bg-black/50 p-4 backdrop-blur-md sm:flex-row sm:items-center">
+        <div class="min-w-0 flex-1">
+          <p class="text-[10px] font-semibold uppercase tracking-[0.28em] text-cyan-300/80">Contract address</p>
+          <p class="truncate font-mono text-sm">TBA</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-copy="TBA" class="copy-btn rounded-xl border border-cyan-300/40 bg-cyan-300/10 px-4 py-2.5 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-300/20">
+            <span data-label>Copy CA</span>
+          </button>
+          <a href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="rounded-xl border border-white/20 px-4 py-2.5 text-sm font-semibold text-white transition hover:border-cyan-300">
+            Chart
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="chart" class="mx-auto max-w-6xl px-5 py-16 pb-24">
+      <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.38em] text-fuchsia-300">Dexscreener</p>
+          <h2 class="mt-3 font-display text-4xl font-extrabold md:text-5xl">Chart</h2>
+          <p class="mt-3 text-cyan-50/80">Watch $C@T move. The embed is the pair. The button opens it full size.</p>
+        </div>
+        <a href="https://dexscreener.com/solana/TBA" target="_blank" rel="noopener noreferrer" class="inline-flex w-fit rounded-full border border-cyan-200/40 px-6 py-3 font-semibold text-cyan-50 transition hover:border-cyan-300 hover:text-cyan-200">
+          Chart
+        </a>
+      </div>
+      <div class="overflow-hidden rounded-[1.6rem] border border-cyan-200/25 bg-black/70 p-2 shadow-glow">
+        <iframe
+          title="C@T Dexscreener chart"
+          src="https://dexscreener.com/solana/TBA?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=1&chartType=usd&interval=15"
+          class="h-[560px] w-full rounded-2xl"
+          loading="lazy"
+          allow="clipboard-write"
+        ></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-cyan-200/15 bg-black/60 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-10 md:flex-row md:items-center md:justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.jpg" alt="" class="h-11 w-11 rounded-full object-cover mix-blend-screen" />
+        <div>
+          <p class="font-display text-xl font-extrabold">C<span class="text-cyan-300">@</span>T</p>
+          <p class="text-sm text-cyan-50/70">The Cat on National Punctuation Day.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://t.me/catonsol_fun" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="transition hover:scale-110">
+          <img src="tg.png" alt="" class="h-10 w-10 rounded-full object-cover" />
+        </a>
+        <a href="https://x.com/catonsol_fun" target="_blank" rel="noopener noreferrer" aria-label="X" class="overflow-hidden rounded-full bg-black ring-1 ring-white/20 transition hover:scale-110">
+          <img src="x.png" alt="" class="h-10 w-10 object-cover" />
+        </a>
+      </div>
+    </div>
+    <p class="px-5 pb-8 text-center text-xs text-cyan-50/45">$C@T is a meme on Solana. Check the contract, then decide for yourself.</p>
+  </footer>
+
+  <script>
+    const status = document.getElementById("copyStatus");
+    document.querySelectorAll(".copy-btn").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const value = btn.getAttribute("data-copy");
+        const label = btn.querySelector("[data-label]");
+        try {
+          await navigator.clipboard.writeText(value);
+        } catch (err) {
+          const area = document.createElement("textarea");
+          area.value = value;
+          document.body.appendChild(area);
+          area.select();
+          document.execCommand("copy");
+          area.remove();
+        }
+        const previous = label.textContent;
+        label.textContent = "Copied";
+        status.textContent = "Contract address copied";
+        setTimeout(() => {
+          label.textContent = previous;
+        }, 1600);
+      });
+    });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const menu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => {
+      const open = menu.classList.toggle("hidden") === false;
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    });
+    document.querySelectorAll(".mobile-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+</body>
+</html>
